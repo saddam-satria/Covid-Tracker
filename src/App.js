@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import React from 'react'
+import { getGLobal, indonesia,getDailyAction,getCountryAction} from './actions/cases'
+import { useDispatch } from 'react-redux'
+import Home from './routes/Home'
+import PageNotFound from './components/PageNotFound'
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 function App() {
+  const dispatch = useDispatch()
+  
+  React.useEffect(() => {
+    dispatch(indonesia())
+    dispatch(getGLobal())
+    dispatch(getDailyAction())
+    dispatch(getCountryAction())
+  }, [dispatch])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Switch>
+          <Route path="/" exact  component={Home}/> 
+          <Route path="/*"   component={PageNotFound}/> 
+        </Switch>
+      </Router>
     </div>
   );
 }
 
-export default App;
+export default App
+
