@@ -14,7 +14,6 @@ const Home = () => {
   const dailyLoading = useSelector((state) => state.daily.loading);
   const dailyError = useSelector((state) => state.daily.error);
 
-  console.log(global);
   return (
     <>
       <header className="mt-3 ">
