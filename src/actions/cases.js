@@ -1,5 +1,5 @@
 import { getData } from './api';
-import { GET_INDONESIA, SET_LOADING, GET_GLOBALS, GET_DAILY,GET_COUNTRY,GET_CASES_COUNTRY} from '../constant';
+import { GET_INDONESIA, SET_LOADING,GET_DAILY, GET_COUNTRY, GET_CASES_COUNTRY } from '../constant';
 
 const url = 'https://covid19.mathdro.id/api/';
 
@@ -14,38 +14,27 @@ export const indonesia = () => async (dispatch) => {
   });
 };
 
-export const getGLobal = () => async (dispatch) => {
-  dispatch(setLoadingGlobal());
-  const data = await getData(url);
-
-  dispatch({
-    type: GET_GLOBALS,
-    data: data.data,
-    error: data.error,
-  });
-}
-
 export const getDailyAction = () => async (dispatch) => {
   dispatch(setLoadingDaily());
-  const data = await getData(url + "daily");
+  const data = await getData(url + 'daily');
 
   dispatch({
     type: GET_DAILY,
     data: data.data,
     error: data.error,
   });
-}
+};
 
 export const getCountryAction = () => async (dispatch) => {
   dispatch(setLoadingCountry());
-  const data = await getData(url + "countries");
+  const data = await getData(url + 'countries');
 
   dispatch({
     type: GET_COUNTRY,
     data: data.data,
     error: data.error,
   });
-}
+};
 
 export const getCasesCountries = (country) => async (dispatch) => {
   dispatch(setLoadingCasesCountry());
@@ -56,32 +45,30 @@ export const getCasesCountries = (country) => async (dispatch) => {
     data: data.data,
     error: data.error,
   });
-}
-
-
+};
 
 export const setLoadingIndonesia = () => {
   return {
-    type: SET_LOADING + "_INDONESIA",
+    type: SET_LOADING + '_INDONESIA',
   };
 };
 export const setLoadingGlobal = () => {
   return {
-    type: SET_LOADING + "_GLOBAL",
+    type: SET_LOADING + '_GLOBAL',
   };
 };
 export const setLoadingDaily = () => {
   return {
-    type: SET_LOADING + "_DAILY",
+    type: SET_LOADING + '_DAILY',
   };
 };
 export const setLoadingCountry = () => {
   return {
-    type: SET_LOADING + "_COUNTRY",
+    type: SET_LOADING + '_COUNTRY',
   };
 };
 export const setLoadingCasesCountry = () => {
   return {
-    type: SET_LOADING+ "_CASES_COUNTRY",
+    type: SET_LOADING + '_CASES_COUNTRY',
   };
 };

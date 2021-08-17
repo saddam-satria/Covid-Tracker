@@ -16,6 +16,35 @@ const Cart = ({ cases, loading }) => {
           <Container>
             {cases.length ? (
               <Line
+                className="line-chart"
+                options={{
+                  legend: {
+                    display: false,
+                  },
+                  elements: {
+                    point: {
+                      radius: 0,
+                    },
+                  },
+                  scales: {
+                    xAxes: [
+                      {
+                        type: 'time',
+                        time: {
+                          format: 'MM/DD/YY',
+                          tooltipformat: '11',
+                        },
+                      },
+                    ],
+                    yAxes: [
+                      {
+                        gridLine: {
+                          display: false,
+                        },
+                      },
+                    ],
+                  },
+                }}
                 data={{
                   labels: cases[0].map((item) => item.reportDate),
                   datasets: [

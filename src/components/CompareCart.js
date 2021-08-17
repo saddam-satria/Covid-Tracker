@@ -42,8 +42,9 @@ const CompareCart = () => {
         </FormGroup>
 
         {getCasesCountryLoading && (
-          <div className="spinner-container">
-            <Spinner children="">Loading tunggu sebentar ...</Spinner>
+          <div className="spinner-container mt-3">
+            <Spinner children=""></Spinner>
+            <span>Wait a moment</span>
           </div>
         )}
         {!getCasesCountryLoading && getCasesCountry.length ? (

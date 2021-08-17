@@ -1,4 +1,4 @@
-import { GET_INDONESIA, SET_LOADING, GET_GLOBALS, GET_DAILY, GET_COUNTRY, GET_CASES_COUNTRY } from '../constant';
+import { GET_INDONESIA, SET_LOADING, GET_DAILY, GET_COUNTRY, GET_CASES_COUNTRY } from '../constant';
 
 const initalState = {
   data: [],
@@ -18,16 +18,6 @@ export const cases = (state = initalState, action) => {
   }
 };
 
-export const globalCases = (state = initalState, action) => {
-  switch (action.type) {
-    case GET_GLOBALS:
-      return { ...state, loading: false, data: action.data, error: action.error };
-    case SET_LOADING + "_GLOBAL":
-      return { ...state, loading: true };
-    default:
-      return state;
-  }
-};
 
 export const getDaily = (state = initalState, action) => {
   switch (action.type) {

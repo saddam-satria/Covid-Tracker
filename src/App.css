@@ -62,7 +62,9 @@
   width: 30%;
 }
 
-
+.line-chart{
+  height: 100vh;
+}
 
 @media (max-width:768px){
   .select-country {
