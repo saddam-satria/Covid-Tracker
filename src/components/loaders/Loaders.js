@@ -1,5 +1,5 @@
 import loadersStyle from './loaders.module.css';
-import loadersGif from './loaders.jpg';
+
 import { Container } from 'reactstrap';
 
 const Loaders = () => {
@@ -7,7 +7,7 @@ const Loaders = () => {
     <>
       <Container>
         <div className={loadersStyle.loaders}>
-          <img className={loadersStyle.gif} src={loadersGif} alt="Loading" />
+          <img className={process.env.PUBLIC_URL + '/img/loaders.jpg'} src={loadersGif} alt="Loading" />
           <h3>wait a moment</h3>
         </div>
       </Container>
