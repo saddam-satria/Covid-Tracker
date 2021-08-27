@@ -7,7 +7,7 @@ const Loaders = () => {
     <>
       <Container>
         <div className={loadersStyle.loaders}>
-          <img className={process.env.PUBLIC_URL + '/img/loaders.jpg'} src={loadersGif} alt="Loading" />
+          <img className={loadersStyle.gif} src={process.env.PUBLIC_URL + '/img/loaders.jpg'} alt="Loading" />
           <h3>wait a moment</h3>
         </div>
       </Container>
