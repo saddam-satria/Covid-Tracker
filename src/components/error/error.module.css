@@ -1,0 +1,10 @@
+.Error{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+.img{
+    height: 30vh;
+    object-fit: cover;
+}

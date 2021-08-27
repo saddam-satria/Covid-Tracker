@@ -1,0 +1,11 @@
+.loaders {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.gif {
+  height: 20vh;
+  object-fit: contain;
+}

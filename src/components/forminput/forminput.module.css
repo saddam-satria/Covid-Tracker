@@ -1,0 +1,19 @@
+.FormInput {
+    padding: 10px 0px;
+}
+
+.container {
+    display: flex;
+}
+.search {
+    margin-left: auto;
+}
+
+@media(max-width: 767px){
+    .container {
+        flex-direction: column;
+    }
+    .search{
+        margin-left: 0;
+    }
+}

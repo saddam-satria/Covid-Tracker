@@ -12,4 +12,3 @@ export const getData = async (url) => {
 
   return data;
 };
-

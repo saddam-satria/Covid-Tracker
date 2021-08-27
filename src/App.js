@@ -1,28 +1,25 @@
+import { useEffect } from 'react';
 import './App.css';
-import React from 'react';
-import { indonesia, getDailyAction, getCountryAction } from './actions/cases';
 import { useDispatch } from 'react-redux';
-import Home from './routes/Home';
-import PageNotFound from './components/PageNotFound';
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+
+import { getCountries } from './actions/cases';
+import Home from './routes';
+import NotFound from './components/notFound/NotFound';
 
 function App() {
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    dispatch(indonesia());
-
-    dispatch(getDailyAction());
-    dispatch(getCountryAction());
-  }, [dispatch]);
-
+  useEffect(() => {
+    dispatch(getCountries());
+  }, []);
   return (
     <div className="App">
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/*" component={PageNotFound} />
+          <Route path="*" exact component={NotFound} />
         </Switch>
       </Router>
     </div>
