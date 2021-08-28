@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
-import { getCountries } from './actions/cases';
+import { getCountries, getDataDaily } from './actions/cases';
 import Home from './routes';
 import NotFound from './components/notFound/NotFound';
 
@@ -13,6 +13,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getCountries());
+    dispatch(getDataDaily())
   }, []);
   return (
     <div className="App">

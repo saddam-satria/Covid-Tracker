@@ -1,5 +1,5 @@
 import { getData } from './api';
-import { GET_COUNTRIES, SET_LOADING, GET_CONFIRMED_CASES } from '../constant';
+import { GET_COUNTRIES, GET_DAILY, GET_CONFIRMED_CASES } from '../constant';
 
 const getCountries = () => async (dispatch) => {
   dispatch(loadingCountries());
@@ -23,6 +23,18 @@ const getDataCases = (countries) => async (dispatch) => {
   });
 };
 
+const getDataDaily = () => async (dispatch)=>{
+  dispatch(loadingDaily())
+  const res =  await getData('https://covid19.mathdro.id/api/daily')
+  const{data,error} = res ;
+
+  dispatch({
+    type: GET_DAILY,
+    data,
+    error
+  })
+}
+
 const loadingCountries = () => {
   return {
     type: 'LOADING_COUNTRIES',
@@ -35,4 +47,10 @@ const loadingCases = () => {
   };
 };
 
-export { getCountries, getDataCases };
+const loadingDaily = () => {
+  return {
+    type: 'LOADING_DAILY',
+  };
+};
+
+export { getCountries, getDataCases,getDataDaily };

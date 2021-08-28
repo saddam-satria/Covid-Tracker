@@ -5,8 +5,7 @@ import Error from '../error/Error';
 import Loaders from '../loaders/Loaders';
 import XLSX from 'xlsx';
 import { createFilter } from 'react-search-input';
-import BarChart from '../barChart/BarChart'
-
+import BarChart from '../barChart/BarChart';
 
 const TableData = ({ countryReport, term }) => {
   const data = useSelector((state) => state.cases.data);
@@ -59,11 +58,13 @@ const TableData = ({ countryReport, term }) => {
               <tr>
                 <th>Province State</th>
                 <th>Country Region</th>
+                <th>Lat</th>
+                <th>Long</th>
                 <th>Confirmed</th>
                 <th>Deaths</th>
                 <th>Recovered</th>
                 <th>Active</th>
-                <th>last Update</th>
+                <th>Last Update</th>
               </tr>
             </thead>
             <tbody>
@@ -75,6 +76,8 @@ const TableData = ({ countryReport, term }) => {
                         <tr>
                           <td>{country.provinceState === null ? '-' : country.provinceState}</td>
                           <td>{country.countryRegion === null ? '-' : country.countryRegion}</td>
+                          <td>{country.lat }</td>
+                          <td>{country.long}</td>
                           <td>{country.confirmed === null ? '-' : country.confirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</td>
                           <td>{country.deaths === null ? '-' : country.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</td>
                           <td>{country.recovered === null ? '-' : country.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</td>
@@ -86,7 +89,7 @@ const TableData = ({ countryReport, term }) => {
                 : null}
             </tbody>
           </Table>
-          <BarChart  country={countryReport} data={data} loading={loading} error ={error} />
+          <BarChart country={countryReport} data={data} loading={loading} error={error} />
         </>
       )}
     </div>

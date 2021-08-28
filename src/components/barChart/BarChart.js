@@ -3,7 +3,7 @@ import ReactChart from 'react-apexcharts';
 import Error from '../error/Error';
 import Loaders from '../loaders/Loaders';
 
-const BarChart = ({ data, loading, error, country}) => {
+const BarChart = ({ data, loading, error, country }) => {
   if (error) {
     return <Error />;
   }
@@ -18,6 +18,7 @@ const BarChart = ({ data, loading, error, country}) => {
             colors: ['#8035f8', 'rgb(248, 50, 43)', 'rgb(64, 199, 37)'],
             chart: {
               id: 'basic-bar',
+
               stacked: true,
               animations: {
                 enabled: true,
@@ -33,12 +34,13 @@ const BarChart = ({ data, loading, error, country}) => {
                 },
               },
             },
+
             xaxis: {
               categories: data[0].map((item) => (item.provinceState === null ? '' : item.provinceState)),
             },
             plotOptions: {
               bar: {
-                horizontal: true,
+                horizontal: false,
               },
             },
             title: {
@@ -71,7 +73,7 @@ const BarChart = ({ data, loading, error, country}) => {
             },
             {
               name: 'Recovered',
-              data: data[0].map((item) => item.recovered === null ? 0 : item.recovered),
+              data: data[0].map((item) => (item.recovered === null ? 0 : item.recovered)),
             },
           ]}
         />

@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_CONFIRMED_CASES } from '../constant';
+import { GET_COUNTRIES,GET_DAILY, GET_CONFIRMED_CASES } from '../constant';
 
 const initializeState = {
   data: [],
@@ -43,5 +43,23 @@ const countries = (state = initializeState, action) => {
       return state;
   }
 };
+const daily = (state = initializeState, action) => {
+  switch (action.type) {
+    case GET_DAILY:
+      return {
+        ...state,
+        data: action.data,
+        loading: false,
+        error: action.error,
+      };
+    case 'LOADING_DAILY':
+      return {
+        ...state,
+        loading: true,
+      };
+    default:
+      return state;
+  }
+};
 
-export { cases, countries };
+export { cases, countries,daily};

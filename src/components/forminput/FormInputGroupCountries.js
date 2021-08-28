@@ -1,7 +1,6 @@
 import formStyle from './forminput.module.css';
 import { Form, Label, Input, FormGroup } from 'reactstrap';
 import Loaders from '../loaders/Loaders';
-import { useState } from 'react';
 
 const FormInputCountriesGroupe = ({ data, loading, handler, handleInput }) => {
   return (
@@ -16,7 +15,11 @@ const FormInputCountriesGroupe = ({ data, loading, handler, handleInput }) => {
                 <Input type="select" name="select" onChange={(e) => handler(e.target.value)}>
                   {data.length
                     ? data[0].countries.map((countries) => {
-                        return <option value={countries.name}>{countries.name}</option>;
+                        return (
+                          <>
+                            <option value={countries.name}>{countries.name}</option>
+                          </>
+                        );
                       })
                     : null}
                 </Input>

@@ -7,6 +7,7 @@ import { getDataCases } from '../actions/cases';
 import FormInputGroupCountries from '../components/forminput/FormInputGroupCountries';
 import Error from '../components/error/Error';
 import Table from '../components/table/Table';
+import LineChart from '../components/lineChart/Line';
 
 const Index = () => {
   const countries = useSelector((state) => state.countries.data);
@@ -38,6 +39,7 @@ const Index = () => {
         <img className="headers-img" src="https://covid19.mathdro.id/api/og" alt=" covid global cases" />
         <FormInputGroupCountries handleInput={handleInput} loading={loading} data={countries} handler={changeCountriesHandler} />
         <Table term={term} countryReport={country} />
+        <LineChart />
       </Container>
     </>
   );
