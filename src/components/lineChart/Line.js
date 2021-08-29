@@ -19,29 +19,39 @@ const Line = () => {
         <LineChart
           series={[
             {
-              name: 'China',
-              data: data[0].map((item) => item.confirmed.china),
-            },
-            {
-              name: 'Others',
-              data: data[0].map((item) => item.confirmed.outsideChina),
+              name: 'Global',
+              data: data[0].map((item) => item.confirmed.total),
             },
           ]}
           options={{
             chart: {
-              type: 'line',
+              type: 'area',
               zoom: {
                 enabled: true,
+                type: 'x',
+                autoScaleYaxis: true,
               },
+              stacked: false,
             },
 
+            yaxis: {
+              labels: {
+                formatter: function (val) {
+                  return (val / 1).toFixed(0);
+                },
+              },
+              title: {
+                text: 'Covid',
+              },
+            },
             dataLabels: {
               enabled: false,
             },
             colors: ['#8035f8', 'rgb(248, 50, 43)'],
 
             xaxis: {
-              categories: data[0].map((item) => item.reportDate),
+              type: 'datetime',
+              categories : data[0].map(item => item.reportDate)
             },
             title: {
               text: 'Covid Trend Line by daily',
@@ -54,8 +64,16 @@ const Line = () => {
               show: true,
               position: 'top',
             },
-            markers : {
-              size : 0
+            markers: {
+              size: 0,
+            },
+            tooltip: {
+              shared: false,
+              y: {
+                formatter: function (val) {
+                  return (val / 1).toFixed(0);
+                },
+              },
             },
             responsive: [
               {

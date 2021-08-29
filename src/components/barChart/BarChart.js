@@ -56,7 +56,7 @@ const BarChart = ({ data, loading, error, country }) => {
                 breakpoint: 1000,
                 options: {
                   chart: {
-                    height: '80%',
+                    height: '70%',
                   },
                 },
               },
